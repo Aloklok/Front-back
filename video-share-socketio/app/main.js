@@ -8,7 +8,7 @@ function randomId(){
 	return Math.floor(Math.random()*1e11);
 };
 
-var socket = io.connect('http://localhost:1000',{'forceNew':true}); 
+var socket = io.connect(window.location.hostname,{'forceNew':true}); 
 //force to create new connection everytime,no-cache
 socket.on('message',function(data){
 	console.info(data);
@@ -17,7 +17,7 @@ socket.on('message',function(data){
 });
 
 function render(){
-	var data = messageCache;
+	var data = messageCache;//refer
 	var html = data.sort(function(a,b){
 		return a.ts - b.ts;
 	}).map(function(data,index){
@@ -29,8 +29,7 @@ function render(){
 				</a>
 				<div class='time'>${moment(data.ts).fromNow()}</div>	
 				<input type='submit' class='like-count' value="${data.likedBy.length} Likes"/>			
-		</form>		
-				
+		</form>			
 			`)
 	}).join('');
 	document.getElementById('messages').innerHTML = html;
@@ -52,7 +51,7 @@ function addMessage(e){
 	return false;
 };
 
-//update one message:likedBy 
+//update one message with likedBy changed 
 function likeMessage(message){
 	var index = message.likedBy.indexOf(userId);
 	if(index<0){

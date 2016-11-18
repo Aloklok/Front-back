@@ -26,7 +26,7 @@ io.on('connection',function(socket){
 		}); 
 });
 
-server.listen(1000);
+server.listen(process.env.PORT || 3000 );
 
 var messages = [{
   userId:1,
@@ -37,7 +37,7 @@ var messages = [{
     link:"http://awoiaf.westeros.org/index.php/House_Stonetree"
   },
   likedBy:[1],
-  ts:Date.now() - 10000
+  ts:Date.now() - 8000
 },{
   userId:2,
   messageId:11,
@@ -57,5 +57,5 @@ var messages = [{
     link:"http://gameofthrones.wikia.com/wiki/Margaery_Tyrell"
   },
   likedBy:[],
-  ts:Date.now() - 1000000
+  ts:Date.now() - 5000000
 }];
