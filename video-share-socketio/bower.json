@@ -1,0 +1,20 @@
+{
+  "name": "video-display-app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Alok2333 <alok2333@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.16.0"
+  }
+}
